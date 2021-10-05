@@ -35,7 +35,7 @@ public:
     //     gameOver to false
     //     winCode to 0
     //     turn to true
-    //     gameBoad locations to Empty (see globals.h)
+    //     gameBoard locations to Empty (see globals.h)
     GameState();
 
     // Return the selected row (in the range 0..boardSize-1)

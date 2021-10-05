@@ -50,19 +50,42 @@ int main() {
         // members of the game state to the read values
         // Again, the corresponding mutators of GameState must be first
         // implemented before this works
-            
-        // ECE244 Student: add your code here
+
+        game_state.set_selectedRow(row);
+        game_state.set_selectedColumn(col);
             
         // Call playMove
             
-        // ECE244 Student: add your code here
+        playMove(game_state);
             
         // Print the GameState object, as prescribed in the handout
             
-        // ECE244 Student: add your code here
-            
+        cout << "Selected row " << row << " and column " << col << endl;
+        cout << "Game state after playMove:" << endl;
+        cout << "Board:" << endl;
+        for(int row = 0; row < boardSize; row++){
+            for(int col = 0; col < boardSize; col++){
+                switch (game_state.get_gameBoard(row, col))
+                {
+                case Empty:
+                    cout << "B ";
+                    break;
+                case X:
+                    cout << "X ";
+                    break;
+                case O:
+                    cout << "O ";
+                    break;
+                }
+            }
+            cout << endl;
+        }
+        
+        cout << "moveValid: " << (game_state.get_moveValid() ? "true" : "false") << endl;
+        cout << "gameOver: " << (game_state.get_gameOver() ? "true" : "false") << endl;
+        cout << "winCode: " << game_state.get_winCode() << endl;
+        cout << endl;
     }
-    
 
     return 0;
 }
