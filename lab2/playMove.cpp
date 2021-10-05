@@ -20,56 +20,34 @@ void playMove(GameState& game_state) {
     if(game_state.get_moveValid() && !game_state.get_gameOver()){
         game_state.set_gameBoard(game_state.get_selectedRow(), game_state.get_selectedColumn(), game_state.get_turn() ? X : O);
 
-        if(game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(0, 1) == X && game_state.get_gameBoard(0, 2) == X){
+        game_state.set_winCode(0);
+        if((game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(0, 1) == X && game_state.get_gameBoard(0, 2) == X) || (game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(0, 1) == O && game_state.get_gameBoard(0, 2) == O)){
             game_state.set_winCode(1);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(1, 0) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(1, 2) == X){
+        }
+        if((game_state.get_gameBoard(1, 0) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(1, 2) == X) || (game_state.get_gameBoard(1, 0) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(1, 2) == O)){
             game_state.set_winCode(2);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(2, 0) == X && game_state.get_gameBoard(2, 1) == X && game_state.get_gameBoard(2, 2) == X){
+        }
+        if((game_state.get_gameBoard(2, 0) == X && game_state.get_gameBoard(2, 1) == X && game_state.get_gameBoard(2, 2) == X) || (game_state.get_gameBoard(2, 0) == O && game_state.get_gameBoard(2, 1) == O && game_state.get_gameBoard(2, 2) == O)){
             game_state.set_winCode(3);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(1, 0) == X && game_state.get_gameBoard(2, 0) == X){
+        }
+        if((game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(1, 0) == X && game_state.get_gameBoard(2, 0) == X) || game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(1, 0) == O && game_state.get_gameBoard(2, 0) == O){
             game_state.set_winCode(4);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 1) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 1) == X){
+        }
+        if((game_state.get_gameBoard(0, 1) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 1) == X) || (game_state.get_gameBoard(0, 1) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 1) == O)){
             game_state.set_winCode(5);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 2) == X && game_state.get_gameBoard(1, 2) == X && game_state.get_gameBoard(2, 2) == X){
+        }
+        if((game_state.get_gameBoard(0, 2) == X && game_state.get_gameBoard(1, 2) == X && game_state.get_gameBoard(2, 2) == X) || (game_state.get_gameBoard(0, 2) == O && game_state.get_gameBoard(1, 2) == O && game_state.get_gameBoard(2, 2) == O)){
             game_state.set_winCode(6);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 2) == X){
+        }
+        if((game_state.get_gameBoard(0, 0) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 2) == X) || (game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 2) == O)){
             game_state.set_winCode(7);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 2) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 0) == X){
+        }
+        if((game_state.get_gameBoard(0, 2) == X && game_state.get_gameBoard(1, 1) == X && game_state.get_gameBoard(2, 0) == X) || (game_state.get_gameBoard(0, 2) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 0) == O)){
             game_state.set_winCode(8);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(0, 1) == O && game_state.get_gameBoard(0, 2) == O){
-            game_state.set_winCode(1);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(1, 0) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(1, 2) == O){
-            game_state.set_winCode(2);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(2, 0) == O && game_state.get_gameBoard(2, 1) == O && game_state.get_gameBoard(2, 2) == O){
-            game_state.set_winCode(3);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(1, 0) == O && game_state.get_gameBoard(2, 0) == O){
-            game_state.set_winCode(4);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 1) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 1) == O){
-            game_state.set_winCode(5);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 2) == O && game_state.get_gameBoard(1, 2) == O && game_state.get_gameBoard(2, 2) == O){
-            game_state.set_winCode(6);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 0) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 2) == O){
-            game_state.set_winCode(7);
-            game_state.set_gameOver(true);
-        } else if(game_state.get_gameBoard(0, 2) == O && game_state.get_gameBoard(1, 1) == O && game_state.get_gameBoard(2, 0) == O){
-            game_state.set_winCode(8);
+        }
+        if(game_state.get_winCode() != 0){
             game_state.set_gameOver(true);
         } else {
-            game_state.set_winCode(0);
             game_state.set_turn(!game_state.get_turn());
         }
     }
